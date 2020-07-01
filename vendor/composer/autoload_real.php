@@ -26,13 +26,15 @@ class ComposerAutoloaderInit6d1f51396174f8992f37d84d53ca2f7f
         self::$loader = $loader = new \Composer\Autoload\ClassLoader();
         //var_dump($loader);exit();
         spl_autoload_unregister(array('ComposerAutoloaderInit6d1f51396174f8992f37d84d53ca2f7f', 'loadClassLoader'));
-
+        //die('PHP_VERSION_ID'.PHP_VERSION_ID);
         $useStaticLoader = PHP_VERSION_ID >= 50600 && !defined('HHVM_VERSION') && (!function_exists('zend_loader_file_encoded') || !zend_loader_file_encoded());
         if ($useStaticLoader) {
+            //echo "1";exit();
             require_once __DIR__ . '/autoload_static.php';
 
             call_user_func(\Composer\Autoload\ComposerStaticInit6d1f51396174f8992f37d84d53ca2f7f::getInitializer($loader));
         } else {
+            //echo "2";exit();
             $map = require __DIR__ . '/autoload_namespaces.php';
             foreach ($map as $namespace => $path) {
                 $loader->set($namespace, $path);
